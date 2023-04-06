@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+--- !u!1 &1937368046563296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4856236637143471}
+  - component: {fileID: 114482990655118914}
+  m_Layer: 0
+  m_Name: PistolUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4856236637143471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937368046563296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 116.53751, y: 327.88776, z: -406.74866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114482990655118914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937368046563296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c90edb23255d1344a4b30043a3b2cad, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  id: upgrade_pistol
+  rarity: 3
+  _shopCost: 200
+  heroSpecific: {fileID: 0}
+  locItemName:
+    key: loc_card_upgrade
+    defaultValue: UPGRADE
+  locItemSubtitle:
+    key: loc_pistol
+    defaultValue: PISTOL
+  locItemDesc:
+    key: loc_pistol_upgrade_desc
+    defaultValue: PISTOL UPGRADE DESC
+  sprite: {fileID: 21300000, guid: fd7c5a21ba32c354ca26971b21f2b224, type: 3}
+  descriptionSprite: {fileID: 0}
+  upgrades:
+  - {fileID: 11400000, guid: d53684ec88dece247aaa4e722b09ba89, type: 2}

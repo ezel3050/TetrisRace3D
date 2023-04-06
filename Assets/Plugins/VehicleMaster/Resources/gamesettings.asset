@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338109901c70f04a93495cf255c920a, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier:
+  useMissions: 1
+  useMap: 1
+  showMapMarkerType: 2
+  showMissionCompleteScreen: 1
+  generalData:
+    showScenarioPath: 0
+    autoMovingCraneType: 1
+    carCraneAutoMovingType: 1
+    destroyTrafficOnCrash: 0
+    destroyTrafficDelay: 0
+    requiredStoppedCarToPauseSpawner: 3
+    minTrafficCollisionFactor: 1
+    maxTrafficCollisionFactor: 2.5
+    minRailCollisionFactor: 0.3
+  timerData:
+    useTimer: 0
+    levelTimeModify: 1
+  steeringData:
+    type: 1
+    swipePower: 130
+    maxRotateAngle: 135
+    angleFactorCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  levelWinData:
+    layoutInfos: []
+    useLayoutInfos: 0
+    layoutType: 3
+    continueButtonDelay: 2
+    moneyCounterShowDelay: 0.4
+  missionWinData:
+    layoutInfos: []
+    useLayoutInfos: 0
+    layoutType: 1
+    continueButtonDelay: 2
+    moneyCounterShowDelay: 0.4
+  gameScreenData:
+    vehicleCustomizationData:
+      enabled: 1
+      requiredLevel: 6
+    dashboardCustomizationData:
+      enabled: 1
+      requiredLevel: 6
+    gachaponData:
+      enabled: 1
+      requiredLevel: 3
+  mapScreenData:
+    vehicleCustomizationData:
+      enabled: 1
+      requiredLevel: 0
+    dashboardCustomizationData:
+      enabled: 1
+      requiredLevel: 0
+  tutorialTrackLevelCount: 10
+  missionExpFactor: 1
+  levelResultMultiplier: 4
+  missionResultMultiplier: 4
+  gachaponData:
+    gachaponScreenData:
+      delayBeforeShowDiscard: 2
+      delayBeforeShowSkipAddCoins: 2
+    offerCloseButtonType: 1
+    userCloseButtonType: 2
+    useCurveAddCount: 3
+    addCoinsCount:
+      min: 15
+      max: 15
+    addCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurveOpenCount: 3
+    lootBoxCost:
+      min: 20
+      max: 20
+    costCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    showOnlyCollect: 0
+    enableGachaInterval: 1
+    showIfEnough: 1
+    skippedLevel: 3
+    showGachaInterval: 0
+  lootBoxTokenCount: 10
+  forcePremiumMission: 0
+  generalDataJson:
+  timerDataJson:
+  steeringDataJson:
+  levelWinDataJson:
+  missionWinDataJson:
+  gachaponDataJson: '{"offerCloseButtonType":1,"userCloseButtonType":2,"useCurveAddCount":3,"addCoinsCount":{"min":15,"max":15},"addCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":1.0,"outSlope":1.0,"tangentMode":34,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":1.0,"outSlope":1.0,"tangentMode":34,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"useCurveOpenCount":3,"lootBoxCost":{"min":20,"max":20},"costCurve":{"serializedVersion":"2","m_Curve":[{"serializedVersion":"3","time":0.0,"value":0.0,"inSlope":1.0,"outSlope":1.0,"tangentMode":34,"weightedMode":0,"inWeight":0.0,"outWeight":0.0},{"serializedVersion":"3","time":1.0,"value":1.0,"inSlope":1.0,"outSlope":1.0,"tangentMode":34,"weightedMode":0,"inWeight":0.0,"outWeight":0.0}],"m_PreInfinity":2,"m_PostInfinity":2,"m_RotationOrder":4},"alwaysShowWhenCollect":false,"showIfEnough":true,"skippedLevel":3,"randomSeed":0,"regenerateRange":true,"showGachaponLevelRange":{"min":1,"max":1},"nonShowGachaponLevelRange":{"min":4,"max":4}}'
+  gameScreenDataJson: '{"vehicleCustomizationData":{"enabled":true,"requiredLevel":6},"dashboardCustomizationData":{"enabled":true,"requiredLevel":6},"gachaponData":{"enabled":true,"requiredLevel":3}}'
+  mapScreenDataJson:

@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f38e40605908c4c8f5626bcbf136ac, type: 3}
+  m_Name: MovementTrajectorySettings
+  m_EditorClassIdentifier:
+  linePrefab: {fileID: 114139554855825867, guid: 18f706da75ded304cae3410775eb13db, type: 2}
+  movementTrajectoryData:
+    levelCount: -1
+    linesHeight: 0.1
+    forwardLengthRange:
+      min: 5
+      max: 3.5
+    backwardLengthRange:
+      min: 3
+      max: 4
+    lengthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    singleLine: 1
+    singleLineWidthFactor: 1.1
+    useHalfDelta: 0
+    showForward: 1
+    showBackward: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    beginAlphaFactor: 0
+    endAlphaFactor: 0
+    alphaRange:
+      min: 0.3
+      max: 0.4
+    alphaCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.26199
+        outSlope: 0.26199
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.44110855
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.627579
+        outSlope: 1.627579
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.073903024
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    vehicleDatas:
+    - vehicleType: 12
+      lengthMultiplier: 1.3
+    - vehicleType: 6
+      lengthMultiplier: 1.1
+    - vehicleType: 5
+      lengthMultiplier: 1.1
+    - vehicleType: 21
+      lengthMultiplier: 0.7
+    - vehicleType: 20
+      lengthMultiplier: 1.6
+    - vehicleType: 36
+      lengthMultiplier: 0.8
+    - vehicleType: 35
+      lengthMultiplier: 0.8
+    - vehicleType: 37
+      lengthMultiplier: 0.8
+    - vehicleType: 31
+      lengthMultiplier: 1.3
+    - vehicleType: 32
+      lengthMultiplier: 0.9
+    - vehicleType: 14
+      lengthMultiplier: 0.9
+    - vehicleType: 17
+      lengthMultiplier: 0.8
+    - vehicleType: 18
+      lengthMultiplier: 0.8
+  dataJson:
+  straightLength: 20
+  maxLength: 1000
+  minAngle: 2
+  radiusFixCoeff: 0.85
+  material: {fileID: 2100000, guid: 5a3845d34ee99e3408f9c8d49aaf2324, type: 2}

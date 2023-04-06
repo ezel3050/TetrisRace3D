@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1224735803157758
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4152691454572574}
+  - component: {fileID: 114196869007266112}
+  m_Layer: 0
+  m_Name: AudioManagerPro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4152691454572574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224735803157758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114196869007266112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224735803157758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c19968be2afd34392dc39579c13dfe, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  audioList: {fileID: 11400000, guid: 07d0845073c90074394456d6b4799653, type: 2}
+  audioCategories:
+  - type: 1
+    mixerGroup: {fileID: 24300000, guid: bf28db1a9096f03499de67d36ce0bf46, type: 2}
+    volumeBounds:
+      min: -80
+      max: 0
+    volumeParameterName: MusicVolume
+    maxCount: 2
+  - type: 2
+    mixerGroup: {fileID: 24300006, guid: bf28db1a9096f03499de67d36ce0bf46, type: 2}
+    volumeBounds:
+      min: -80
+      max: 0
+    volumeParameterName: UiVolume
+    maxCount: 3
+  - type: 3
+    mixerGroup: {fileID: 24300002, guid: bf28db1a9096f03499de67d36ce0bf46, type: 2}
+    volumeBounds:
+      min: -80
+      max: 0
+    volumeParameterName: EffectsVolume
+    maxCount: 3
+  audioSourcePrefab: {fileID: 82871246818651202, guid: bbca2068071897345921ddd5afc6d933, type: 2}

@@ -1,0 +1,476 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1456710075488727
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4169169963453146}
+  - component: {fileID: 114066663913085054}
+  m_Layer: 0
+  m_Name: MissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4169169963453146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456710075488727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114066663913085054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456710075488727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70cdad073308354481c11b0e09dc57a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  missionPreviewInfos:
+  - pointType: 1
+    previewSprite: {fileID: 21300000, guid: daf1096306c6f5345a13a4d8e6ad6c1d, type: 2}
+  - pointType: 2
+    previewSprite: {fileID: 21300000, guid: 51ca2f1f5416d36468b9356784737596, type: 2}
+  - pointType: 3
+    previewSprite: {fileID: 21300000, guid: 7643684f9918d354abb3f5c6e26fd23c, type: 2}
+  - pointType: 4
+    previewSprite: {fileID: 21300000, guid: 4ee876b23e38f954ebf5268ccc94aad5, type: 2}
+  - pointType: 5
+    previewSprite: {fileID: 21300000, guid: 849178a7fbc875b43b1b064ce370a157, type: 2}
+  - pointType: 6
+    previewSprite: {fileID: 21300000, guid: 2cfca6676151a8148a7bf9605678c503, type: 2}
+  - pointType: 7
+    previewSprite: {fileID: 21300000, guid: ea5ade0f604345c438eb63c99193818f, type: 2}
+  - pointType: 8
+    previewSprite: {fileID: 21300000, guid: 7c4d225a3e7d8bf4bb5805e985f20473, type: 2}
+  - pointType: 9
+    previewSprite: {fileID: 21300000, guid: 71bb8b238a64a0249a449a3387c7e471, type: 2}
+  - pointType: 10
+    previewSprite: {fileID: 21300000, guid: bea0b1004da477249945ccebc8a92b2b, type: 2}
+  - pointType: 11
+    previewSprite: {fileID: 21300000, guid: 75754e0b8fe0c8446974806b45129ad8, type: 2}
+  - pointType: 12
+    previewSprite: {fileID: 21300000, guid: 7643684f9918d354abb3f5c6e26fd23c, type: 2}
+  - pointType: 13
+    previewSprite: {fileID: 21300000, guid: d05e7273b2f135042901bbf2194246e3, type: 2}
+  - pointType: 14
+    previewSprite: {fileID: 21300000, guid: f0b6119a3eb98ae4cbf705e48d314bde, type: 2}
+  - pointType: 15
+    previewSprite: {fileID: 21300000, guid: 7643684f9918d354abb3f5c6e26fd23c, type: 2}
+  - pointType: 16
+    previewSprite: {fileID: 21300000, guid: 53c2799a50b4c724ca212c3e6ecd0eb7, type: 2}
+  - pointType: 17
+    previewSprite: {fileID: 21300000, guid: f601e8d8d434d0e419a081827cae9748, type: 2}
+  - pointType: 18
+    previewSprite: {fileID: 21300000, guid: c893efe82b9eab54d8716fc75b3d7f7e, type: 2}
+  - pointType: 19
+    previewSprite: {fileID: 21300000, guid: 0d4f5caea8960f944b731135cd96d6e0, type: 2}
+  - pointType: 20
+    previewSprite: {fileID: 21300000, guid: 849178a7fbc875b43b1b064ce370a157, type: 2}
+  - pointType: 21
+    previewSprite: {fileID: 21300000, guid: 51ca2f1f5416d36468b9356784737596, type: 2}
+  missionPacks:
+  - description: 1 - Tutor
+    cyclical: 0
+    missions:
+    - mapPointType: 1
+      missionInfos:
+      - levelLink:
+          id: 212193
+      - levelLink:
+          id: 200058
+      completedMissionsToUnlock: 0
+    - mapPointType: 1
+      missionInfos:
+      - levelLink:
+          id: 731486
+      - levelLink:
+          id: 400996
+      - levelLink:
+          id: 605410
+      completedMissionsToUnlock: 0
+  - description: 2 - Tutor
+    cyclical: 1
+    missions:
+    - mapPointType: 3
+      missionInfos:
+      - levelLink:
+          id: 92206
+      - levelLink:
+          id: 849329
+      - levelLink:
+          id: 117628
+      completedMissionsToUnlock: 0
+    - mapPointType: 3
+      missionInfos:
+      - levelLink:
+          id: 687655
+      - levelLink:
+          id: 918347
+      - levelLink:
+          id: 635128
+      - levelLink:
+          id: 251957
+      completedMissionsToUnlock: 1
+    - mapPointType: 4
+      missionInfos:
+      - levelLink:
+          id: 233707
+      - levelLink:
+          id: 845631
+      - levelLink:
+          id: 60067
+      - levelLink:
+          id: 874016
+      completedMissionsToUnlock: 1
+    - mapPointType: 2
+      missionInfos:
+      - levelLink:
+          id: 848103
+      - levelLink:
+          id: 306907
+      completedMissionsToUnlock: 2
+  - description: 3 - Mid
+    cyclical: 1
+    missions:
+    - mapPointType: 3
+      missionInfos:
+      - levelLink:
+          id: 34347
+      - levelLink:
+          id: 517425
+      - levelLink:
+          id: 558873
+      completedMissionsToUnlock: 0
+    - mapPointType: 3
+      missionInfos:
+      - levelLink:
+          id: 287063
+      - levelLink:
+          id: 274757
+      - levelLink:
+          id: 689017
+      - levelLink:
+          id: 558152
+      completedMissionsToUnlock: 1
+    - mapPointType: 4
+      missionInfos:
+      - levelLink:
+          id: 190095
+      - levelLink:
+          id: 558152
+      - levelLink:
+          id: 687655
+      completedMissionsToUnlock: 1
+  - description: 4 - Airport
+    cyclical: 1
+    missions:
+    - mapPointType: 10
+      missionInfos:
+      - levelLink:
+          id: 122330
+      - levelLink:
+          id: 693638
+      - levelLink:
+          id: 716707
+      completedMissionsToUnlock: 0
+    - mapPointType: 4
+      missionInfos:
+      - levelLink:
+          id: 102940
+      - levelLink:
+          id: 962706
+      - levelLink:
+          id: 747400
+      completedMissionsToUnlock: 1
+    - mapPointType: 10
+      missionInfos:
+      - levelLink:
+          id: 755261
+      - levelLink:
+          id: 28099
+      - levelLink:
+          id: 425278
+      completedMissionsToUnlock: 1
+    - mapPointType: 10
+      missionInfos:
+      - levelLink:
+          id: 308327
+      - levelLink:
+          id: 731789
+      - levelLink:
+          id: 652769
+      - levelLink:
+          id: 689714
+      completedMissionsToUnlock: 2
+    - mapPointType: 12
+      missionInfos:
+      - levelLink:
+          id: 274757
+      - levelLink:
+          id: 841288
+      - levelLink:
+          id: 821167
+      - levelLink:
+          id: 437469
+      completedMissionsToUnlock: 2
+  - description: 5 - Industrial
+    cyclical: 1
+    missions:
+    - mapPointType: 7
+      missionInfos:
+      - levelLink:
+          id: 525537
+      - levelLink:
+          id: 437469
+      - levelLink:
+          id: 495070
+      - levelLink:
+          id: 884220
+      completedMissionsToUnlock: 0
+    - mapPointType: 18
+      missionInfos:
+      - levelLink:
+          id: 962537
+      - levelLink:
+          id: 43505
+      - levelLink:
+          id: 501067
+      completedMissionsToUnlock: 1
+    - mapPointType: 1
+      missionInfos:
+      - levelLink:
+          id: 677152
+      - levelLink:
+          id: 386257
+      - levelLink:
+          id: 142490
+      - levelLink:
+          id: 881117
+      completedMissionsToUnlock: 2
+    - mapPointType: 10
+      missionInfos:
+      - levelLink:
+          id: 916373
+      - levelLink:
+          id: 212974
+      completedMissionsToUnlock: 2
+    - mapPointType: 6
+      missionInfos:
+      - levelLink:
+          id: 220405
+      - levelLink:
+          id: 683747
+      - levelLink:
+          id: 94917
+      - levelLink:
+          id: 64276
+      completedMissionsToUnlock: 2
+    - mapPointType: 20
+      missionInfos:
+      - levelLink:
+          id: 519290
+      - levelLink:
+          id: 127803
+      - levelLink:
+          id: 794937
+      completedMissionsToUnlock: 2
+  - description: 6 - Camps
+    cyclical: 1
+    missions:
+    - mapPointType: 9
+      missionInfos:
+      - levelLink:
+          id: 48988
+      - levelLink:
+          id: 751317
+      - levelLink:
+          id: 5967
+      - levelLink:
+          id: 779790
+      completedMissionsToUnlock: 0
+    - mapPointType: 8
+      missionInfos:
+      - levelLink:
+          id: 447628
+      - levelLink:
+          id: 789084
+      - levelLink:
+          id: 438708
+      completedMissionsToUnlock: 0
+    - mapPointType: 19
+      missionInfos:
+      - levelLink:
+          id: 418196
+      - levelLink:
+          id: 894705
+      - levelLink:
+          id: 225208
+      - levelLink:
+          id: 866832
+      - levelLink:
+          id: 279877
+      completedMissionsToUnlock: 0
+    - mapPointType: 9
+      missionInfos:
+      - levelLink:
+          id: 705926
+      - levelLink:
+          id: 946331
+      - levelLink:
+          id: 318146
+      completedMissionsToUnlock: 3
+    - mapPointType: 3
+      missionInfos:
+      - levelLink:
+          id: 270990
+      - levelLink:
+          id: 251957
+      - levelLink:
+          id: 287896
+      - levelLink:
+          id: 211667
+      completedMissionsToUnlock: 3
+    - mapPointType: 9
+      missionInfos:
+      - levelLink:
+          id: 870283
+      - levelLink:
+          id: 946331
+      - levelLink:
+          id: 440638
+      completedMissionsToUnlock: 4
+    - mapPointType: 21
+      missionInfos:
+      - levelLink:
+          id: 966784
+      - levelLink:
+          id: 693180
+      completedMissionsToUnlock: 4
+  - description: 7 - Farm and Factory
+    cyclical: 1
+    missions:
+    - mapPointType: 11
+      missionInfos:
+      - levelLink:
+          id: 203388
+      - levelLink:
+          id: 773317
+      - levelLink:
+          id: 316728
+      completedMissionsToUnlock: 0
+    - mapPointType: 7
+      missionInfos:
+      - levelLink:
+          id: 64276
+      - levelLink:
+          id: 634389
+      - levelLink:
+          id: 23651
+      - levelLink:
+          id: 130383
+      completedMissionsToUnlock: 0
+    - mapPointType: 12
+      missionInfos:
+      - levelLink:
+          id: 207287
+      - levelLink:
+          id: 335180
+      - levelLink:
+          id: 792724
+      - levelLink:
+          id: 416645
+      completedMissionsToUnlock: 0
+    - mapPointType: 18
+      missionInfos:
+      - levelLink:
+          id: 645436
+      - levelLink:
+          id: 983701
+      - levelLink:
+          id: 463817
+      - levelLink:
+          id: 268121
+      completedMissionsToUnlock: 0
+  - description: 8 - Mix
+    cyclical: 1
+    missions:
+    - mapPointType: 13
+      missionInfos:
+      - levelLink:
+          id: 793622
+      - levelLink:
+          id: 494406
+      - levelLink:
+          id: 999929
+      - levelLink:
+          id: 210611
+      completedMissionsToUnlock: 0
+    - mapPointType: 11
+      missionInfos:
+      - levelLink:
+          id: 255146
+      - levelLink:
+          id: 817368
+      - levelLink:
+          id: 492740
+      completedMissionsToUnlock: 2
+  - description: 9 - Mix
+    cyclical: 1
+    missions:
+    - mapPointType: 17
+      missionInfos:
+      - levelLink:
+          id: 31458
+      - levelLink:
+          id: 113999
+      - levelLink:
+          id: 342526
+      - levelLink:
+          id: 514713
+      completedMissionsToUnlock: 0
+  - description:
+    cyclical: 1
+    missions:
+    - mapPointType: 17
+      missionInfos:
+      - levelLink:
+          id: 50712
+      - levelLink:
+          id: 476168
+      - levelLink:
+          id: 2583
+      - levelLink:
+          id: 266830
+      - levelLink:
+          id: 266131
+      completedMissionsToUnlock: 0
+  usePremiumMission: 0
+  skippedMissions: 0
+  randomSeed: 0
+  regenerateRange: 1
+  showPremiumPopupInterval:
+    min: 3
+    max: 3
+  showClosePopupButtonDelay: 0
+  fakeSkipPremiumMission: 0
+  serializationJson:
+  oldSerializationJson:

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+--- !u!1 &1675940034561665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4678400143395950}
+  - component: {fileID: 114598684083965903}
+  m_Layer: 0
+  m_Name: MedkitItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4678400143395950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675940034561665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1333.539, y: 701.7036, z: -562.3489}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114598684083965903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675940034561665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1b4f6438b51de4fbb4477d643f0e10, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  id: item_medkit
+  rarity: 0
+  _shopCost: 300
+  heroSpecific: {fileID: 0}
+  locItemName:
+    key: loc_consum_medkit
+    defaultValue: MEDKIT
+  locItemSubtitle:
+    key:
+    defaultValue:
+  locItemDesc:
+    key:
+    defaultValue: +50
+  sprite: {fileID: 21300000, guid: c3481e7c96775814db92ff694e0fbe14, type: 3}
+  descriptionSprite: {fileID: 21300000, guid: bcde9649add759c478cbae3ceb7f2f08, type: 3}
+  _healthGain: 5
+  _effect: {fileID: 198099603294719589, guid: 86f1b0c6a451e8a40b2259a908617c7c, type: 2}

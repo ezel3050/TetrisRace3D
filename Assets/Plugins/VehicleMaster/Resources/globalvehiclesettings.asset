@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae1ff7c99b2b4446a47e7c37c0d76b6, type: 3}
+  m_Name: GlobalVehicleSettings
+  m_EditorClassIdentifier:
+  speedMultiplier: 1.1
+  stopPowerMultiplier: 1.15
+  stopDurationMultiplier: 1.15
+  inputIgnoreDuration: 0.2
+  wheelData:
+    forwardScanResolution: 5
+    sideToSideScanResolution: 1
+    scanIgnoreLayers:
+      serializedVersion: 2
+      m_Bits: 519590
+    applyForceToOthers: 1
+    forceToOthers: 0.8
+    forceModeToOthers: 2
+    visualOffsetLayer:
+      serializedVersion: 2
+      m_Bits: 8192
+    visualOffsetIncreaseSpeed: 1
+    visualOffsetDecreaseSpeed: 1
+  brakesData:
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5106132
+        outSlope: 0.5106132
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.16628176
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.5318389
+        outSlope: 1.5318389
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07852197
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    duration: 1
+  steeringData:
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.54367644
+        outSlope: 0.54367644
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.038842976
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.382933
+        outSlope: 1.382933
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.0767442
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    speed: 180
+  serializationJson:

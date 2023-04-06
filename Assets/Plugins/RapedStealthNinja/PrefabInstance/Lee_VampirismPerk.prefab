@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+--- !u!1 &1621983084782695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4578287727873633}
+  - component: {fileID: 114981472074200472}
+  m_Layer: 0
+  m_Name: Lee_VampirismPerk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4578287727873633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621983084782695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 116.53751, y: 327.88776, z: -406.74866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114981472074200472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621983084782695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3698dc3e70a464fa16b34e5f9c8094, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  id: perk_leevampirism
+  rarity: 0
+  _shopCost: 300
+  heroSpecific: {fileID: 11400000, guid: 0632968603f25634cb9980c3888e4f74, type: 2}
+  locItemName:
+    key: loc_lee_vampirism
+    defaultValue: VAMPIRISM
+  locItemSubtitle:
+    key:
+    defaultValue:
+  locItemDesc:
+    key: loc_lee_vampirism_desc
+    defaultValue: GAIN HEAL PER KILL
+  sprite: {fileID: 21300000, guid: c7691d7f3ac47ba49ad85f62190fc011, type: 3}
+  descriptionSprite: {fileID: 0}
+  _healthRegenPerKill: 0.5
+  _healthRegenChance: 0.33
+  _onHealEffect: {fileID: 198099603294719589, guid: 86f1b0c6a451e8a40b2259a908617c7c, type: 2}

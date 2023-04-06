@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+--- !u!1 &1811418177813284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4056158590884008}
+  - component: {fileID: 114646527010171186}
+  m_Layer: 0
+  m_Name: RevolverUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4056158590884008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811418177813284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 116.53751, y: 327.88776, z: -406.74866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114646527010171186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 100100000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811418177813284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c90edb23255d1344a4b30043a3b2cad, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  id: upgrade_revolver
+  rarity: 3
+  _shopCost: 200
+  heroSpecific: {fileID: 0}
+  locItemName:
+    key: loc_card_upgrade
+    defaultValue: UPGRADE
+  locItemSubtitle:
+    key: loc_revolver
+    defaultValue: REVOLVER
+  locItemDesc:
+    key: loc_revolver_upgrade_desc
+    defaultValue: REVOLVER UPGRADE DESC
+  sprite: {fileID: 21300000, guid: 5a447fa7b4383e04b92055ec59c7aaf2, type: 3}
+  descriptionSprite: {fileID: 0}
+  upgrades:
+  - {fileID: 11400000, guid: 3afb91b9294444f4e9925a10d8b07e9e, type: 2}
+  - {fileID: 11400000, guid: 20cc68b96963faf409d42996e3e4b58c, type: 2}
