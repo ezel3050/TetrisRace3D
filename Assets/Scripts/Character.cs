@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
 
     public virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
     }
 

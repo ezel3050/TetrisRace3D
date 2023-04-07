@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Player : Character
 {
+    public static Player instance;
     public Transform mesh;
     public float moveSpeed;
     public float rotationOffset;
@@ -13,6 +14,8 @@ public class Player : Character
 
     public override void Awake()
     {
+        //Not calling base.Awake on purpes to seperate Player with character for later reusabilty
+        instance = this;
         animator = GetComponentInChildren<Animator>();
         characterController = GetComponent<CharacterController>();
     }
