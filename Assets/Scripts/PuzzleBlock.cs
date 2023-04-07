@@ -15,6 +15,7 @@ public class PuzzleBlock : MonoBehaviour
         Character character = other.GetComponent<Character>();
         if (character == null) return;
         if (character.characterId != blockId) return;
+        if (character.puzzleInHand != null) return;
 
         character.PickUpPuzzleBlock(this);
     }

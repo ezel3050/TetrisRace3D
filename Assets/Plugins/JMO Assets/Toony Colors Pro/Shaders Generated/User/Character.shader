@@ -104,7 +104,7 @@ Shader "Toony Colors Pro 2/User/Character"
 		float _TexLod;
 	#endif
 
-		#define OUTLINE_WIDTH _Outline
+		#define OUTLINE_WIDTH 0.0
 
 		v2f TCP2_Outline_Vert(a2v v)
 		{
@@ -113,6 +113,15 @@ Shader "Toony Colors Pro 2/User/Character"
 			UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 
+
+			float3 objSpaceLight = mul(unity_WorldToObject, _WorldSpaceLightPos0).xyz;
+	#ifdef TCP2_OUTLINE_CONST_SIZE
+			//Camera-independent outline size
+			float dist = distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex));
+			v.vertex.xyz += objSpaceLight.xyz * 0.01 * _Outline * dist;
+	#else
+			v.vertex.xyz += objSpaceLight.xyz * 0.01 * _Outline;
+	#endif
 
 	#if TCP2_ZSMOOTH_ON
 			float4 pos = float4(UnityObjectToViewPos(v.vertex), 1.0);
@@ -146,13 +155,7 @@ Shader "Toony Colors Pro 2/User/Character"
 			normal.z = -_ZSmooth;
 	#endif
 
-	#ifdef TCP2_OUTLINE_CONST_SIZE
-			//Camera-independent outline size
-			float dist = distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex));
-			#define SIZE	dist
-	#else
-			#define SIZE	1.0
-	#endif
+			#define SIZE	0.0
 
 	#if TCP2_ZSMOOTH_ON
 			o.pos = mul(UNITY_MATRIX_P, pos + float4(normalize(normal),0) * OUTLINE_WIDTH * 0.01 * SIZE);
