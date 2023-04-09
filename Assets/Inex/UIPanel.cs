@@ -16,14 +16,15 @@ public class UIPanel : MonoBehaviour
     public virtual void OpenPanel()
     {
         InputManager.movementInputActive = false;
-
-
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1;
     }
 
     public virtual void ClosePanel()
     {
         InputManager.movementInputActive = true;
-
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0;
 
     }
 

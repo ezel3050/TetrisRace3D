@@ -12,13 +12,13 @@ public class Stage : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnFirstPuzzleBlocks());
+        InitilizeStations();
     }
 
-
+    
     public IEnumerator SpawnFirstPuzzleBlocks()
     {
         List<PuzzleSpawnPoint> emptySpawnPoints = new List<PuzzleSpawnPoint>(puzzleSpawnPoints);
-
         int idIndex = 0;
         foreach (ListOfListOfSpawnedPuzzles listOfSpawnedPuzzles in listOfListSpawnedPuzzles)
         {
@@ -30,11 +30,25 @@ public class Stage : MonoBehaviour
                 emptySpawnPoints[randomSpawnPoint].SpawnPuzzleInside(idIndex);
                 emptySpawnPoints.RemoveAt(randomSpawnPoint);
 
-                yield return new WaitForEndOfFrame();
             }
             idIndex++;
         }
+        yield return new WaitForEndOfFrame();
 
+    }
+
+    void InitilizeStations()
+    {
+        int i = 0;
+        foreach(PuzzleStation station in stations)
+        {
+            station.Initilize(i);
+            if (GameManager.instnace.currentLevel.stages.IndexOf(this) == GameManager.instnace.currentLevel.stages.Count - 1)
+            {
+                station.endPuzzleBlock.gameObject.SetActive(false);
+            }
+            i++;
+        }
     }
 
 

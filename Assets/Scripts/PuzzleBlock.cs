@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PuzzleBlock : MonoBehaviour
 {
+    public int verticalBlockN;
     public int blockId;
     public List<MeshRenderer> blockPieces;
     public Transform endPoint;
     public GameObject endCollider;
     public PuzzleBlockState state;
 
+    [HideInInspector] public PuzzleSpawnPoint spawnPoint;
+
+
     private void Awake()
     {
-        SetBlockPieces();   
+        SetBlockPieces();
+        SetCollidersActive(false);
+        SetNavMeshObstaclesActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (state != PuzzleBlockState.NotPickedUp) return;
-        Character character = other.GetComponent<Character>();
-        if (character == null) return;
-        if (character.characterId != blockId) return;
-        if (character.puzzleInHand != null) return;
+        Player player = other.GetComponent<Player>();
+        if (player == null) return;
+        if (player.characterId != blockId) return;
+        if (player.puzzleInHand != null) return;
 
-        character.PickUpPuzzleBlock(this);
+        player.PickUpPuzzleBlock(this);
     }
 
     public void Initiliez(int id)
@@ -47,6 +55,25 @@ public class PuzzleBlock : MonoBehaviour
         {
             blockPieces.Add(meshRenderer);
         }
+    }
+
+    public void SetCollidersActive(bool active)
+    {
+        foreach(BoxCollider boxCollider in GetComponentsInChildren<BoxCollider>())
+        {
+            if (boxCollider.isTrigger) continue;
+            boxCollider.enabled = active;
+        }
+    }
+    public void SetNavMeshObstaclesActive(bool active,  bool happenWithDelay= false) 
+    {
+        this.CallWithDelay(() =>
+        {
+            foreach (NavMeshObstacle obstacle in GetComponentsInChildren<NavMeshObstacle>())
+            {
+                obstacle.enabled = active;
+            }
+        }, happenWithDelay ? 3 : 0);
     }
 
 }

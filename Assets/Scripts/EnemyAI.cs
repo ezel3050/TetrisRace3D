@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,35 +7,145 @@ using UnityEngine.AI;
 public class EnemyAI : Character
 {
     [HideInInspector] public PuzzleStation puzzleStation;
+    PuzzleBlock targetPuzzleBlock;
     NavMeshAgent agent;
+    int currentStageIndex;
+    PuzzleStation myCurrentStation;
+    Action onReachDestination;
+
 
     public override void Awake()
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
     }
-
-    public void StartTheGame()
+    private void Start()
     {
-        //CALL THIS ONLY WHEN PUZZLE STATION IS SET!
-        //LOOP
+    }
+
+    public void Initilize(int id)
+    {
+        characterId = id;
+        GetComponentInChildren<SkinnedMeshRenderer>().material = Resources.instance.idMaterials[id];
+        SetCurrentStation();
+
+        this.CallWithDelay(() =>
+        {
+            StartTheLoop();
+        }, 2);
+    }
+
+
+    void SetCurrentStation()
+    {
+        myCurrentStation =  GameManager.instnace.currentLevel.stages[currentStageIndex].stations[characterId];
+    }
+
+    //A
+    public void StartTheLoop() 
+    {
+        SetTargetPuzzleBlock();
+        agent.SetDestination(targetPuzzleBlock.transform.position);
+        this.CallWithDelay(() => onReachDestination = ReachedPuzzleBlock, 2);
+        
+        
+    }
+
+    //B
+    void ReachedPuzzleBlock()
+    {
+        PickUpPuzzleBlock(targetPuzzleBlock);
+        targetPuzzleBlock = null; // Use blockInHand from now on
+        agent.SetDestination(myCurrentStation.boxColliderDummy.position);
+        this.CallWithDelay(() => onReachDestination = ReachedStationCollider, 3);
 
 
     }
 
+    //C
+    void ReachedStationCollider()
+    {
+        myCurrentStation.AddPuzzleBlockToStation(this);
+        this.CallWithDelay(() => StartTheLoop(), 1);
+        
 
-    //agents finding their station
-    //finding their puzzle pieces
-    //picking the piece
-    //bringing it to station
-    //finsihg up the station
-    //moving the next stage
-    //on the last stage, going to the finish line
-    
-    //Generate puzzle pieces
-    //sort them properly so it;s easy to recreate and AIs access them
-    
+    }
 
+    void RunToFinishline()
+    {
+        agent.SetDestination(GameManager.instnace.currentLevel.finishLine.finishPoint.position);
+        this.CallWithDelay(() => onReachDestination = ReachedFinishline, 1);
+    }
+
+    void ReachedFinishline()
+    {
+
+        //Lose panel
+        //Finishline confetti 
+        //Stop other ais 
+    }
+
+    public void StopAI()
+    {
+        agent.isStopped = true;
+    }
+
+    public void PlaySadAnimation()
+    {
+        animator.SetTrigger("Sad");
+    }
+
+    public void Dance()
+    {
+        animator.SetTrigger("Dance");
+    }
+
+    void SetTargetPuzzleBlock()
+    {
+        List<PuzzleBlock> myPuzzleBlocks = GameManager.instnace.currentLevel.stages[currentStageIndex].listOfListSpawnedPuzzles[characterId].listOfSpawnedPuzzles;
+        targetPuzzleBlock = myPuzzleBlocks[UnityEngine.Random.Range(0, myPuzzleBlocks.Count)];
+    }
+
+    public void ThisStationIsFinished()
+    {
+        if(currentStageIndex == GameManager.instnace.currentLevel.stages.Count - 1)
+        {
+            RunToFinishline();
+        }
+        else
+        {
+            currentStageIndex++;
+            SetCurrentStation();
+        }
+        
+
+    }
+
+    private void Update()
+    {
+        Animation();
+        CheckOnReachedDestination();
+
+    }
+
+    void CheckOnReachedDestination()
+    {
+        if (agent.isStopped) return;
+        if (onReachDestination == null) return;
+        if(agent.remainingDistance <= agent.stoppingDistance)
+        {
+            Action copyOfOnReachedAction = onReachDestination;
+
+            onReachDestination = null;
+
+            copyOfOnReachedAction?.Invoke();
+        }
+    }
+
+    void Animation()
+    {
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+    }
 
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-
+    public Transform finishPoint;
 
     private void OnTriggerEnter(Collider other)
     {

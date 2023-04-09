@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PuzzleSpawnPoint : MonoBehaviour
 {
-    public PuzzleBlock puzzleBlockInside;
-    public Stage stage;
-    int delayUntilRespawn = 3;
+    PuzzleBlock puzzleBlockInside;
 
-//Replace stage with the stage in the GameManager
-//Contenue initilizing the level
-//after everything initilized perfectly (including AIs and Player)
-//make the AIs Work baby
+    Stage stage;
+    int delayUntilRespawn = 6;
+
+    private void Awake()
+    {
+        stage = GetComponentInParent<Stage>();
+    }
+
 
     public void SpawnPuzzleInside(int id, int forcedPuzzle = -1)
     {
@@ -27,6 +29,7 @@ public class PuzzleSpawnPoint : MonoBehaviour
 
         stage.listOfListSpawnedPuzzles[id].listOfSpawnedPuzzles.Add(puzzleBlockInside);
 
+        puzzleBlockInside.spawnPoint = this;
 
         puzzleBlockInside.Initiliez(id);
     }

@@ -5,9 +5,8 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public List<Transform> spawnPoints;
-    public List<PuzzleStation> puzzleStations;
-
-
+    public List<Stage> stages;
+    public FinishLine finishLine;
 
 
 }

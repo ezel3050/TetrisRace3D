@@ -16,16 +16,14 @@ public class FinalPanel : UIPanel
     public override void OpenPanel()
     {
         base.OpenPanel();
-        canvasGroup.blocksRaycasts = true;
-        canvasGroup.alpha = 1;
+
     }
 
 
     public override void ClosePanel()
     {
         base.ClosePanel();
-        canvasGroup.blocksRaycasts = false;
-        canvasGroup.alpha = 0;
+
 
     }
 

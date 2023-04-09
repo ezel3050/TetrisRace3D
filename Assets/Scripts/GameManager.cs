@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instnace;
     public List<Level> levels;
     public List<EnemyAI> enemyAIs;
+
+
     public int currentLevelIndex
     {
         get
@@ -20,6 +22,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(Globals.currentLevelIndexKey, value);
         }
     }
+
+    public Level currentLevel
+    {
+        get
+        {
+            return levels[currentLevelIndex];
+        }
+    }
+
 
     private void Awake()
     {
@@ -42,34 +53,46 @@ public class GameManager : MonoBehaviour
 
     void InitilizeLevel()
     {
-        //Player positioning
-        Player.instance.transform.position = levels[currentLevelIndex].spawnPoints[0].position;
-        Player.instance.transform.rotation = levels[currentLevelIndex].spawnPoints[0].rotation;
+        //REMEMBER THE LAST SPAWN POINT IS ALWAYS THE PLAYER 
 
+        //Player positioning
+        Player.instance.transform.position = currentLevel.spawnPoints[0].position;
+        Player.instance.transform.rotation = currentLevel.spawnPoints[0].rotation;
         //AI
         Utilities.DeactivateAllEnemyAis();
 
-        int index = 0;
-        foreach(Transform spawnPoint in levels[currentLevelIndex].spawnPoints)
+        for (int i = 0; i < enemyAIs.Count; i++)
         {
-            if (index == 0)
+            enemyAIs[i].gameObject.SetActive(true);
+
+            //i + 1 cause Player is 0
+
+            enemyAIs[i].Initilize(i + 1);
+            enemyAIs[i].transform.position = currentLevel.spawnPoints[i +1].position;
+            enemyAIs[i].transform.rotation = currentLevel.spawnPoints[i +1].rotation;
+
+            // this.CallWithDelay(() => enemyAIs[index].StartTheLoop(), 3);
+        }
+        
+    }
+
+    public void AIWon(EnemyAI victoriusAI)
+    {
+        foreach(EnemyAI enemyAI in enemyAIs)
+        {
+            if(enemyAI == victoriusAI)
             {
-                index++;
-                continue;
+                enemyAI.Dance();
             }
 
-            enemyAIs[index].gameObject.SetActive(true);
-
-            enemyAIs[index].transform.position = spawnPoint.position;
-            enemyAIs[index].transform.rotation = spawnPoint.rotation;
-            enemyAIs[index].puzzleStation = levels[currentLevelIndex].puzzleStations[index];
-
-            enemyAIs[index].StartTheGame();
-
-            index++;
+            else
+            {
+                enemyAI.StopAI();
+                enemyAI.PlaySadAnimation();
+            }
         }
 
-        
+
     }
 
 

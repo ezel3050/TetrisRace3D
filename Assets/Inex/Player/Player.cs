@@ -43,6 +43,5 @@ public class Player : Character
     void Animation()
     {
         animator.SetFloat("Speed", characterController.velocity.magnitude);
-
     }
 }

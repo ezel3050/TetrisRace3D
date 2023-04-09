@@ -24,6 +24,9 @@ public class Character : MonoBehaviour
         puzzleInHand.transform.parent = handPoint;
         puzzleInHand.transform.position = handPoint.position;
         puzzleInHand.transform.localScale = Vector3.one * 0.4f;
+
+        puzzleInHand.spawnPoint.PuzzleBlockPicked();
+
         HandUpAnimation(true);
     }
 
