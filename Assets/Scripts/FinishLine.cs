@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
     public Transform finishPoint;
+    public ParticleSystem finishLineParticle;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +22,11 @@ public class FinishLine : MonoBehaviour
 
     }
 
+    public void PlayFinalParticle()
+    {
+        if (finishLineParticle == null) return;
+        finishLineParticle.Play();
+    }
 
 
 }

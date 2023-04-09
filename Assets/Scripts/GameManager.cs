@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         ActivateCurrentLevel();
         InitilizeLevel();
+        InputManager.interactAction += StartTheGame;
     }
 
 
@@ -76,8 +77,20 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void StartTheGame()
+    {
+        InputManager.interactAction -= StartTheGame;
+        foreach (EnemyAI enemyAI in enemyAIs)
+        {
+            enemyAI.StartTheLoop();
+        }
+    }
+
     public void AIWon(EnemyAI victoriusAI)
     {
+        MainMenu.instnace.lostPanel.OpenPanel();
+
+        //Stop AIs
         foreach(EnemyAI enemyAI in enemyAIs)
         {
             if(enemyAI == victoriusAI)
@@ -91,7 +104,6 @@ public class GameManager : MonoBehaviour
                 enemyAI.PlaySadAnimation();
             }
         }
-
 
     }
 

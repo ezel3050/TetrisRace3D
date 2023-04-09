@@ -18,6 +18,10 @@ public class SceneManagement : MonoBehaviour
         ScreenBlackout.instance.BlackFadeIn(() => ao.allowSceneActivation = true);
     }
 
+    public static void ReloadCurrentLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 
 }

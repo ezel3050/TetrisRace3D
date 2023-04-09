@@ -63,7 +63,7 @@ public class InputManager : MonoBehaviour
 
     public static bool Interact()
     {
-        return Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0);
+        return Input.anyKey || Input.GetMouseButtonDown(0);
     }
 
 }

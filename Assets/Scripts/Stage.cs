@@ -43,10 +43,7 @@ public class Stage : MonoBehaviour
         foreach(PuzzleStation station in stations)
         {
             station.Initilize(i);
-            if (GameManager.instnace.currentLevel.stages.IndexOf(this) == GameManager.instnace.currentLevel.stages.Count - 1)
-            {
-                station.endPuzzleBlock.gameObject.SetActive(false);
-            }
+
             i++;
         }
     }
@@ -66,5 +63,4 @@ public class Stage : MonoBehaviour
         }
         return currentLowest;
     }
-
 }

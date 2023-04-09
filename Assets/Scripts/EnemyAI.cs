@@ -29,10 +29,6 @@ public class EnemyAI : Character
         GetComponentInChildren<SkinnedMeshRenderer>().material = Resources.instance.idMaterials[id];
         SetCurrentStation();
 
-        this.CallWithDelay(() =>
-        {
-            StartTheLoop();
-        }, 2);
     }
 
 
@@ -66,10 +62,33 @@ public class EnemyAI : Character
     void ReachedStationCollider()
     {
         myCurrentStation.AddPuzzleBlockToStation(this);
-        this.CallWithDelay(() => StartTheLoop(), 1);
-        
+        this.CallWithDelay(() =>
+        {
+            if (myCurrentStation.isStationConnectedToTheEnd())
+            {
+                ThisStationIsFinished();
+            }
+            else
+            {
+                StartTheLoop();
+            }
 
+        }, 1);
     }
+
+    public void ThisStationIsFinished()
+    {
+        if (currentStageIndex == GameManager.instnace.currentLevel.stages.Count - 1)
+        {
+            RunToFinishline();
+        }
+        else
+        {
+            currentStageIndex++;
+            SetCurrentStation();
+        }
+    }
+
 
     void RunToFinishline()
     {
@@ -79,10 +98,8 @@ public class EnemyAI : Character
 
     void ReachedFinishline()
     {
+        GameManager.instnace.AIWon(this);
 
-        //Lose panel
-        //Finishline confetti 
-        //Stop other ais 
     }
 
     public void StopAI()
@@ -106,20 +123,6 @@ public class EnemyAI : Character
         targetPuzzleBlock = myPuzzleBlocks[UnityEngine.Random.Range(0, myPuzzleBlocks.Count)];
     }
 
-    public void ThisStationIsFinished()
-    {
-        if(currentStageIndex == GameManager.instnace.currentLevel.stages.Count - 1)
-        {
-            RunToFinishline();
-        }
-        else
-        {
-            currentStageIndex++;
-            SetCurrentStation();
-        }
-        
-
-    }
 
     private void Update()
     {
@@ -149,3 +152,8 @@ public class EnemyAI : Character
 
 
 }
+
+//stage, level design
+//move tutorial
+//main menu
+//make a little shop using snow race 3d
