@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public List<Level> levels;
     public List<EnemyAI> enemyAIs;
 
-
     public int currentLevelIndex
     {
         get
@@ -39,9 +38,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        InputManager.movementInputActive = false;
         ActivateCurrentLevel();
         InitilizeLevel();
-        InputManager.interactAction += StartTheGame;
     }
 
 
@@ -79,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTheGame()
     {
-        InputManager.interactAction -= StartTheGame;
+        InputManager.movementInputActive = true;
         foreach (EnemyAI enemyAI in enemyAIs)
         {
             enemyAI.StartTheLoop();
@@ -88,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void AIWon(EnemyAI victoriusAI)
     {
-        MainMenu.instnace.lostPanel.OpenPanel();
+        MainMenu.instance.lostPanel.OpenPanel();
 
         //Stop AIs
         foreach(EnemyAI enemyAI in enemyAIs)
