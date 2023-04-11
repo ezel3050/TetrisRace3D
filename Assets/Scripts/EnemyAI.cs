@@ -92,7 +92,7 @@ public class EnemyAI : Character
 
     void RunToFinishline()
     {
-        agent.SetDestination(GameManager.instnace.currentLevel.finishLine.finishPoint.position);
+        agent.SetDestination(GameManager.instnace.currentLevel.finishLine.transform.position);
         this.CallWithDelay(() => onReachDestination = ReachedFinishline, 1);
     }
 
@@ -105,6 +105,7 @@ public class EnemyAI : Character
     public void StopAI()
     {
         agent.isStopped = true;
+        agent.enabled = false;
     }
 
     public void PlaySadAnimation()
@@ -112,10 +113,7 @@ public class EnemyAI : Character
         animator.SetTrigger("Sad");
     }
 
-    public void Dance()
-    {
-        animator.SetTrigger("Dance");
-    }
+    
 
     void SetTargetPuzzleBlock()
     {
@@ -133,6 +131,7 @@ public class EnemyAI : Character
 
     void CheckOnReachedDestination()
     {
+        if (!agent.enabled) return;
         if (agent.isStopped) return;
         if (onReachDestination == null) return;
         if(agent.remainingDistance <= agent.stoppingDistance)

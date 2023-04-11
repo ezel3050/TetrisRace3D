@@ -92,14 +92,17 @@ public class GameManager : MonoBehaviour
         //Stop AIs
         foreach(EnemyAI enemyAI in enemyAIs)
         {
+            enemyAI.StopAI();
             if(enemyAI == victoriusAI)
             {
                 enemyAI.Dance();
+                enemyAI.transform.position = FinishLine.instance.firstPoint.position;
+                enemyAI.transform.rotation= FinishLine.instance.firstPoint.rotation;
+
             }
 
             else
             {
-                enemyAI.StopAI();
                 enemyAI.PlaySadAnimation();
             }
         }

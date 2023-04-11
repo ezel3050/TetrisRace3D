@@ -8,7 +8,7 @@ public class Stage : MonoBehaviour
     public List<PuzzleStation> stations;
     public List<ListOfListOfSpawnedPuzzles> listOfListSpawnedPuzzles = new List<ListOfListOfSpawnedPuzzles>();
     public List<PuzzleSpawnPoint> puzzleSpawnPoints;
-
+    public List<Transform> characterSpawnPoints;
     private void Start()
     {
         StartCoroutine(SpawnFirstPuzzleBlocks());

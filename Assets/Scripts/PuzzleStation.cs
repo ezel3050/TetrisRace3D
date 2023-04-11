@@ -68,18 +68,28 @@ public class PuzzleStation : MonoBehaviour
 
         PlaceBoxColliderAtTheEnd();
 
-        EnemyAI enemyAI = character.GetComponent<EnemyAI>();
-        if (enemyAI != null)
+        if (isStationConnectedToTheEnd())
         {
-            this.CallWithDelay(() =>
+            boxColliderDummy.gameObject.SetActive(false);
+
+            EnemyAI enemyAI = character.GetComponent<EnemyAI>();
+            if (enemyAI != null)
             {
-                if (isStationConnectedToTheEnd())
+                this.CallWithDelay(() =>
                 {
                     enemyAI.ThisStationIsFinished();
-                }
 
-            }, 0.1f);
+                }, 0.1f);
+            }
+
+            //is player
+            else
+            {
+                Player.instance.currentStage++;
+            }
+            
         }
+        
     }
 
     public bool isStationConnectedToTheEnd()

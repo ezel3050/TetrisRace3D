@@ -36,4 +36,10 @@ public class Character : MonoBehaviour
     }
 
 
+    public void Dance()
+    {
+        animator.SetTrigger("Dance");
+    }
+
+
 }
