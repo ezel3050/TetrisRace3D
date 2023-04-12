@@ -57,7 +57,7 @@ public class EnemyAI : Character
         PickUpPuzzleBlock(targetPuzzleBlock);
         targetPuzzleBlock = null; // Use blockInHand from now on
         agent.SetDestination(myCurrentStation.boxColliderDummy.position);
-        this.CallWithDelay(() => onReachDestination = ReachedStationCollider, 2);
+        this.CallWithDelay(() => onReachDestination = ReachedStationCollider, 3);
 
 
     }

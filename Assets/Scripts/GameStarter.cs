@@ -8,9 +8,7 @@ public class GameStarter : MonoBehaviour
 
     void Update()
     {
-        print("A");
         if (!InputManager.movementInputActive) return;
-        print("B");
         if (Input.GetMouseButtonDown(0))
         {
             if (Input.mousePosition.y < Screen.height / 4)

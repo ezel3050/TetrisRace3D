@@ -45,6 +45,7 @@ public class Player : Character
 
     private void CharacterMovement()
     {
+        if (!GameManager.instnace.isGameStarted) return;
         characterController.Move(new Vector3(InputManager.horizontal, !characterController.isGrounded && considerGravity ? -2 : 0, InputManager.vertical) * Time.deltaTime * moveSpeed);
         if (InputManager.DoesJoystickHaveAnyInput())
         {
