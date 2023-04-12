@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InputManager.movementInputActive = false;
+      //  InputManager.movementInputActive = false;
         ActivateCurrentLevel();
         InitilizeLevel();
     }
