@@ -42,18 +42,18 @@ public class Multiplier : MonoBehaviour
         multipliedReward.text = Mathf.RoundToInt(baseReward * ReturnMultiplier()).ToString();
     }
 
-    public void RewardButtonClicked()
-    {
-        StopRotating();
-        AdManager.instance.ShowRV(() =>
-        {
-            UICollectableImageGenerator.Instance.SpawnItems(Input.mousePosition, MainMenu.instance.HUD.moneyUISlot.imageIcon.transform.position, () =>
-            {
-                MainMenu.instance.HUD.moneyUISlot.UpdateText(Mathf.RoundToInt(baseReward * ReturnMultiplier()));
-            });
-            
-        });
-    }
+    // public void RewardButtonClicked()
+    // {
+    //     StopRotating();
+    //     AdManager.instance.ShowRV(() =>
+    //     {
+    //         UICollectableImageGenerator.Instance.SpawnItems(Input.mousePosition, MainMenu.instance.HUD.moneyUISlot.imageIcon.transform.position, () =>
+    //         {
+    //             MainMenu.instance.HUD.moneyUISlot.UpdateText(Mathf.RoundToInt(baseReward * ReturnMultiplier()));
+    //         });
+    //         
+    //     });
+    // }
 
     public float ReturnMultiplier()
     {
