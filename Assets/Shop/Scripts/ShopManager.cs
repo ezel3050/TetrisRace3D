@@ -124,15 +124,15 @@ public class ShopManager : MonoBehaviour
     }
 
 
-   //  public void PurchaseRVButtonClicked()
-   //  {
-   //  //    GameAnalytics.NewDesignEvent("ShopPurchaseClicked_RV");
-   // //     GameAnalytics.NewDesignEvent("WhatRVPricesAreClickedTheMost(ValueHereIsRVPrice)", selectedShopButton.shopItemData.RVPrice);
-   //
-   //      //Show RV 
-   //      AdManager.instance.ShowRV(RvShowed);
-   //
-   //  }
+    public void PurchaseRVButtonClicked()
+    {
+    //    GameAnalytics.NewDesignEvent("ShopPurchaseClicked_RV");
+   //     GameAnalytics.NewDesignEvent("WhatRVPricesAreClickedTheMost(ValueHereIsRVPrice)", selectedShopButton.shopItemData.RVPrice);
+
+        //Show RV 
+        AdManager.instance.ShowRV(RvShowed);
+
+    }
 
     void RvShowed()
     {
