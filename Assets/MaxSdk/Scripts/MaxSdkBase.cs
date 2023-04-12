@@ -80,22 +80,41 @@ public abstract class MaxSdkBase
         /// <summary>
         /// Whether or not the SDK has been initialized successfully.
         /// </summary>
-        public bool IsSuccessfullyInitialized;
+        public bool IsSuccessfullyInitialized { get; private set; }
 
         /// <summary>
         /// Get the country code for this user.
         /// </summary>
-        public string CountryCode;
+        public string CountryCode { get; private set; }
 
 #if UNITY_EDITOR || UNITY_IPHONE || UNITY_IOS
         /// <summary>
         /// App tracking status values. Primarily used in conjunction with iOS14's AppTrackingTransparency.framework.
         /// </summary>
-        public AppTrackingStatus AppTrackingStatus;
+        public AppTrackingStatus AppTrackingStatus { get; private set; }
 #endif
 
+        public bool IsTestModeEnabled { get; private set; }
+
         [Obsolete("This API has been deprecated and will be removed in a future release.")]
-        public ConsentDialogState ConsentDialogState;
+        public ConsentDialogState ConsentDialogState { get; private set; }
+
+#if UNITY_EDITOR
+        public static SdkConfiguration CreateEmpty()
+        {
+            var sdkConfiguration = new SdkConfiguration();
+            sdkConfiguration.IsSuccessfullyInitialized = true;
+#pragma warning disable 0618
+            sdkConfiguration.ConsentDialogState = ConsentDialogState.Unknown;
+#pragma warning restore 0618
+            sdkConfiguration.AppTrackingStatus = AppTrackingStatus.Authorized;
+            var currentRegion = RegionInfo.CurrentRegion;
+            sdkConfiguration.CountryCode = currentRegion != null ? currentRegion.TwoLetterISORegionName : "US";
+            sdkConfiguration.IsTestModeEnabled = false;
+
+            return sdkConfiguration;
+        }
+#endif
 
         public static SdkConfiguration Create(IDictionary<string, object> eventProps)
         {
@@ -103,6 +122,7 @@ public abstract class MaxSdkBase
 
             sdkConfiguration.IsSuccessfullyInitialized = MaxSdkUtils.GetBoolFromDictionary(eventProps, "isSuccessfullyInitialized");
             sdkConfiguration.CountryCode = MaxSdkUtils.GetStringFromDictionary(eventProps, "countryCode", "");
+            sdkConfiguration.IsTestModeEnabled = MaxSdkUtils.GetBoolFromDictionary(eventProps, "isTestModeEnabled");
 
 #pragma warning disable 0618
             var consentDialogStateStr = MaxSdkUtils.GetStringFromDictionary(eventProps, "consentDialogState", "");

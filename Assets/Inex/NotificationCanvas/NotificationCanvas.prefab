@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2574748328206210225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2574748328642634335}
+        m_TargetAssemblyTypeName: MessagePanel, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2574748328642634333
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +254,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Message
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 276eb09b741596e41907537703346007, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 8863722271457955819, guid: 276eb09b741596e41907537703346007, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -377,7 +389,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 276eb09b741596e41907537703346007, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 8863722271457955819, guid: 276eb09b741596e41907537703346007, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -534,7 +546,7 @@ GameObject:
   - component: {fileID: 3407833398194242361}
   - component: {fileID: 3407833398194242360}
   - component: {fileID: 8961758307618885495}
-  - component: {fileID: 1201867195798266865}
+  - component: {fileID: 1541123027451305891}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -613,7 +625,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1201867195798266865
+--- !u!114 &1541123027451305891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +634,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3407833398194242362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22a7c4a654594ab499b4b4bed8c9528, type: 3}
+  m_Script: {fileID: 11500000, guid: 676dac54bd3a90742b6ded40b4b5edfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3407833399218388943
@@ -961,4 +973,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96f82fb8559e55489913121e88b2a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingPanel: {fileID: 1201867195798266865}
+  loadingPanel: {fileID: 1541123027451305891}

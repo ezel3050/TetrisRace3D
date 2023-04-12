@@ -36,6 +36,7 @@ public class PuzzleBlock : MonoBehaviour
 
     public void Initiliez(int id)
     {
+        
         blockId = id;
         SetBlockPiecesMaterial(id);
     }
@@ -45,7 +46,7 @@ public class PuzzleBlock : MonoBehaviour
     {
         foreach(MeshRenderer blockPiece in blockPieces)
         {
-            blockPiece.material = Resources.instance.idMaterials[idIndex];
+            blockPiece.material = GameManager.instnace.currentLevel.idMaterials[idIndex];
         }
     }
 

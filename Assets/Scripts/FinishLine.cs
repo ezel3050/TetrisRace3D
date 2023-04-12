@@ -24,6 +24,7 @@ public class FinishLine : MonoBehaviour
         //isPlayer
         if(character.characterId == 0)
         {
+            GameManager.instnace.PlayerWon();
             FinalPanel.instance.OpenPanel();
             finalCamera.SetActive(true);
             Player.instance.MovePlayerToPosition(firstPoint.position);

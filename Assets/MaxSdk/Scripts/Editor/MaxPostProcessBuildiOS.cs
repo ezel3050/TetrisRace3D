@@ -146,6 +146,7 @@ namespace AppLovinMax.Scripts.Editor
 
             AddSwiftSupportIfNeeded(buildPath, project, unityFrameworkTargetGuid);
             EmbedSwiftStandardLibrariesIfNeeded(buildPath, project, unityMainTargetGuid);
+            AddYandexSettingsIfNeeded(project, unityMainTargetGuid);
 
             project.WriteToFile(projectPath);
         }
@@ -373,7 +374,6 @@ namespace AppLovinMax.Scripts.Editor
             AddGoogleApplicationIdIfNeeded(plist);
 #endif
 
-            AddYandexSettingsIfNeeded(plist);
             AddSdkSettingsIfNeeded(plist, path);
             EnableTermsFlowIfNeeded(plist);
             AddSkAdNetworksInfoIfNeeded(plist);
@@ -444,7 +444,7 @@ namespace AppLovinMax.Scripts.Editor
         }
 #endif
 
-        private static void AddYandexSettingsIfNeeded(PlistDocument plist)
+        private static void AddYandexSettingsIfNeeded(PBXProject project, string unityMainTargetGuid)
         {
             if (!AppLovinIntegrationManager.IsAdapterInstalled("Yandex")) return;
 
@@ -454,7 +454,7 @@ namespace AppLovinMax.Scripts.Editor
                 return;
             }
 
-            plist.root.SetString("GENERATE_INFOPLIST_FILE", "NO");
+            project.SetBuildProperty(unityMainTargetGuid, "GENERATE_INFOPLIST_FILE", "NO");
         }
 
         private static void AddSdkSettingsIfNeeded(PlistDocument infoPlist, string buildPath)
@@ -547,9 +547,13 @@ namespace AppLovinMax.Scripts.Editor
         {
             if (AppLovinSettings.Instance.ShowInternalSettingsInIntegrationManager) return;
 
-            // Check if consent flow is enabled. No need to update info.plist if consent flow is disabled.
+            // Check if terms flow is enabled. No need to update info.plist if consent flow is disabled.
             var consentFlowEnabled = AppLovinSettings.Instance.ConsentFlowEnabled;
             if (!consentFlowEnabled) return;
+
+            // Check if terms flow is enabled for this format.
+            var consentFlowPlatform = AppLovinSettings.Instance.ConsentFlowPlatform;
+            if (consentFlowPlatform != Platform.All && consentFlowPlatform != Platform.iOS) return;
 
             var userTrackingUsageDescription = AppLovinSettings.Instance.UserTrackingUsageDescriptionEn;
             var privacyPolicyUrl = AppLovinSettings.Instance.ConsentFlowPrivacyPolicyUrl;

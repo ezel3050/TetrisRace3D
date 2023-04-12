@@ -34,6 +34,12 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
 #endif
     {
         private const string AppLovinSettingsFileName = "applovin_settings.json";
+
+        private const string KeyTermsFlowSettings = "terms_flow_settings";
+        private const string KeyTermsFlowEnabled = "terms_flow_enabled";
+        private const string KeyTermsFlowTermsOfService = "terms_flow_terms_of_service";
+        private const string KeyTermsFlowPrivacyPolicy = "terms_flow_privacy_policy";
+
         private const string KeyConsentFlowSettings = "consent_flow_settings";
         private const string KeyConsentFlowEnabled = "consent_flow_enabled";
         private const string KeyConsentFlowTermsOfService = "consent_flow_terms_of_service";
@@ -65,14 +71,14 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             if (AppLovinSettings.Instance.ShowInternalSettingsInIntegrationManager)
             {
                 var consentFlowSettingsFilePath = Path.Combine("Assets", "Plugin/Android/res/raw/");
-                EnableConsentFLowIfNeeded(consentFlowSettingsFilePath);
+                EnableConsentFlowIfNeeded(consentFlowSettingsFilePath);
             }
 #endif
         }
 
-        public static void EnableConsentFLowIfNeeded(string rawResourceDirectory)
+        public static void EnableConsentFlowIfNeeded(string rawResourceDirectory)
         {
-            // Check if consent flow is enabled. Only Unified flow is supported on Android. No need to create the applovin_consent_flow_settings.json if consent flow is disabled.
+            // Check if consent flow is enabled. No need to create the applovin_consent_flow_settings.json if consent flow is disabled.
             var consentFlowEnabled = AppLovinInternalSettings.Instance.ConsentFlowEnabled;
             if (!consentFlowEnabled) return;
 
@@ -115,7 +121,49 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             applovinSdkSettings[KeyConsentFlowSettings] = consentFlowSettings;
 
             var applovinSdkSettingsJson = Json.Serialize(applovinSdkSettings);
+            WriteAppLovinSettingsRawResourceFile(applovinSdkSettingsJson, rawResourceDirectory);
+        }
 
+        public static void EnableTermsFlowIfNeeded(string rawResourceDirectory)
+        {
+            if (AppLovinSettings.Instance.ShowInternalSettingsInIntegrationManager) return;
+
+            // Check if terms flow is enabled. No need to create the applovin_consent_flow_settings.json if consent flow is disabled.
+            var consentFlowEnabled = AppLovinSettings.Instance.ConsentFlowEnabled;
+            if (!consentFlowEnabled) return;
+
+            // Check if terms flow is enabled for this format.
+            var consentFlowPlatform = AppLovinSettings.Instance.ConsentFlowPlatform;
+            if (consentFlowPlatform != Platform.All && consentFlowPlatform != Platform.Android) return;
+
+            var privacyPolicyUrl = AppLovinSettings.Instance.ConsentFlowPrivacyPolicyUrl;
+            if (string.IsNullOrEmpty(privacyPolicyUrl))
+            {
+                AppLovinIntegrationManager.ShowBuildFailureDialog("You cannot use the AppLovin SDK's consent flow without defining a Privacy Policy URL in the AppLovin Integration Manager.");
+
+                // No need to update the applovin_consent_flow_settings.json here. Default consent flow state will be determined on the SDK side.
+                return;
+            }
+
+            var consentFlowSettings = new Dictionary<string, object>();
+            consentFlowSettings[KeyTermsFlowEnabled] = consentFlowEnabled;
+            consentFlowSettings[KeyTermsFlowPrivacyPolicy] = privacyPolicyUrl;
+
+            var termsOfServiceUrl = AppLovinSettings.Instance.ConsentFlowTermsOfServiceUrl;
+            if (MaxSdkUtils.IsValidString(termsOfServiceUrl))
+            {
+                consentFlowSettings[KeyTermsFlowTermsOfService] = termsOfServiceUrl;
+            }
+
+            var applovinSdkSettings = new Dictionary<string, object>();
+            applovinSdkSettings[KeyTermsFlowSettings] = consentFlowSettings;
+
+            var applovinSdkSettingsJson = Json.Serialize(applovinSdkSettings);
+            WriteAppLovinSettingsRawResourceFile(applovinSdkSettingsJson, rawResourceDirectory);
+        }
+
+        private static void WriteAppLovinSettingsRawResourceFile(string applovinSdkSettingsJson, string rawResourceDirectory)
+        {
             if (!Directory.Exists(rawResourceDirectory))
             {
                 Directory.CreateDirectory(rawResourceDirectory);
@@ -128,7 +176,7 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             }
             catch (Exception exception)
             {
-                MaxSdkLogger.UserError("Failed to enable Consent Flow. applovin_consent_flow_settings.json file write failed due to: " + exception.Message);
+                MaxSdkLogger.UserError("applovin_settings.json file write failed due to: " + exception.Message);
                 Console.WriteLine(exception);
             }
         }

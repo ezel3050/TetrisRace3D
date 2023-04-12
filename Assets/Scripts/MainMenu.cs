@@ -25,8 +25,11 @@ public class MainMenu : MonoBehaviour
 
     public void OpenShop(bool open)
     {
+
+        InputManager.movementInputActive = !open;
         shopManager.gameObject.SetActive(open);
         shopManager.ShowOnlyPurchased();
+        Player.instance.SetAnimator();
     }
 
 }

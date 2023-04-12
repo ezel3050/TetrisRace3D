@@ -1660,16 +1660,7 @@ public class MaxSdkCallbacks : MonoBehaviour
     {
         if (_onSdkInitializedEvent == null) return;
 
-        var sdkConfiguration = new MaxSdkBase.SdkConfiguration();
-        sdkConfiguration.IsSuccessfullyInitialized = true;
-#pragma warning disable 0618
-        sdkConfiguration.ConsentDialogState = MaxSdkBase.ConsentDialogState.Unknown;
-#pragma warning restore 0618
-        sdkConfiguration.AppTrackingStatus = MaxSdkBase.AppTrackingStatus.Authorized;
-        var currentRegion = RegionInfo.CurrentRegion;
-        sdkConfiguration.CountryCode = currentRegion != null ? currentRegion.TwoLetterISORegionName : "US";
-
-        _onSdkInitializedEvent(sdkConfiguration);
+        _onSdkInitializedEvent(MaxSdkBase.SdkConfiguration.CreateEmpty());
     }
 #endif
 

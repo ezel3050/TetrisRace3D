@@ -21,6 +21,7 @@ public class AdManager : MonoBehaviour
     private void Start()
     {
         if (IsNoAdsPurchased()) return;
+        InitApplovin();
         this.CallWithDelay(() =>
         {
             StopAndStartIntLoop();
@@ -33,6 +34,7 @@ public class AdManager : MonoBehaviour
     {
         MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) => {
             // AppLovin SDK is initialized, start loading ads
+            InitializeRewardedAds();
             InitilizeINTAD();
         };
 
@@ -66,8 +68,11 @@ public class AdManager : MonoBehaviour
     private void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
         // Rewarded ad is ready for you to show. MaxSdk.IsRewardedAdReady(adUnitId) now returns 'true'.
-
         // Reset retry attempt
+        if(onRVSuccess != null)
+        {
+            MaxSdk.ShowRewardedAd(rvID);
+        }
         rvRetryAttempts = 0;
     }
 
@@ -100,6 +105,7 @@ public class AdManager : MonoBehaviour
 
     private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
     {
+        RewardThePlayer();
         // The rewarded ad displayed and the user should receive the reward.
     }
 
@@ -111,24 +117,45 @@ public class AdManager : MonoBehaviour
             _onRVSuccess?.Invoke();
             return;
         }
-        if (MaxSdk.IsRewardedAdReady(rvID))
+        if(!MaxSdk.IsInitialized())
         {
-            MaxSdk.ShowRewardedAd(rvID);
+            MessagePanel.instance.ShowMessage("No Ads available, Try again in a minute");
+            return;
         }
+
+        GeneralManager.SetTouchActive(false);
+        NotificationCanvas.instance.loadingPanel.ShowScale();
         onRVSuccess = _onRVSuccess;
 
-        AudioManager.instnace.SetAudioMute(true);
+        if (MaxSdk.IsRewardedAdReady(rvID))
+        {
+            Debug.Log("RV Clicked and It's Ready");
+            MaxSdk.ShowRewardedAd(rvID);
+        }
 
-        GeneralManager.PauseTheGame();
-        NotificationCanvas.instance.loadingPanel.ShowScale(true);
+        else
+        {
+            LoadRewardedAd();
+            Debug.Log("RV Clicked NOT READY");
+
+        }
+
     }
 
+    void RewardThePlayer()
+    {
+        onRVSuccess?.Invoke();
+        onRVSuccess = null;
 
+
+        GeneralManager.SetTouchActive(true);
+        NotificationCanvas.instance.loadingPanel.HideScale();
+    }
 
     void RvFinished()
     {
         RVADClosed();
-        NotificationCanvas.instance.loadingPanel.ShowScale(false);
+        NotificationCanvas.instance.loadingPanel.HideScale();
         StopAndStartIntLoop();
     }
 
@@ -136,15 +163,20 @@ public class AdManager : MonoBehaviour
     {
         RVADClosed();
         LoadRewardedAd();
-        MessagePanel.instance.ShowMessage("Video Failed");
+        if (onRVSuccess != null)
+        {
+            onRVSuccess = null;
+            MessagePanel.instance.ShowMessage("Video Failed");
+        }
+
     }
 
 
     void RVADClosed()
     {
-        GeneralManager.ResumeTheGame();
-        AudioManager.instnace.SetAudioMute(false);
-        NotificationCanvas.instance.loadingPanel.ShowScale(false);
+
+        GeneralManager.SetTouchActive(true);
+        NotificationCanvas.instance.loadingPanel.HideScale();
     }
 
     #endregion

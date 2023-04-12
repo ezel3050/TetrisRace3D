@@ -16,17 +16,17 @@ public class UIElement : MonoBehaviour
         canvasGroup = GetComponentInChildren<CanvasGroup>();
     }
 
-    public void ShowScale(bool instant = true)
+    public void ShowScale(bool instant = false)
     {
         ShowScale(true, instant);
     }
 
-    public void HideScale(bool instant = true)
+    public void HideScale(bool instant = false)
     {
         ShowScale(false, instant);
     }
 
-    void ShowScale(bool show , bool instant = true)
+    void ShowScale(bool show , bool instant = false)
     {
         float newScale = show ? 1 : 0;
         float animationDuration = instant ? 0 : 0.3f;

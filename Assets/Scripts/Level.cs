@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     public List<Transform> spawnPoints;
     public List<Stage> stages;
     public FinishLine finishLine;
+    public List<Material> idMaterials;
 
 
 }

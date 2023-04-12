@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioListener))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instnace;

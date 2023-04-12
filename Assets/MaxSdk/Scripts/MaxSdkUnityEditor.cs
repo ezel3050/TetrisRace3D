@@ -208,17 +208,7 @@ public class MaxSdkUnityEditor : MaxSdkBase
     /// </summary>
     public static SdkConfiguration GetSdkConfiguration()
     {
-        var sdkConfiguration = new SdkConfiguration();
-        sdkConfiguration.IsSuccessfullyInitialized = _isInitialized;
-#pragma warning disable 0618
-        sdkConfiguration.ConsentDialogState = ConsentDialogState.Unknown;
-#pragma warning restore 0618
-#if UNITY_EDITOR
-        sdkConfiguration.AppTrackingStatus = AppTrackingStatus.Authorized;
-#endif
-        sdkConfiguration.CountryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
-
-        return sdkConfiguration;
+        return SdkConfiguration.CreateEmpty();
     }
 
     /// <summary>

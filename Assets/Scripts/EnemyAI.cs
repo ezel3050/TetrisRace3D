@@ -10,9 +10,8 @@ public class EnemyAI : Character
     PuzzleBlock targetPuzzleBlock;
     NavMeshAgent agent;
     int currentStageIndex;
-    PuzzleStation myCurrentStation;
+     PuzzleStation myCurrentStation;
     Action onReachDestination;
-
 
     public override void Awake()
     {
@@ -23,18 +22,23 @@ public class EnemyAI : Character
     {
     }
 
-    public void Initilize(int id)
+    public override void Initilize(int id)
     {
-        characterId = id;
-        GetComponentInChildren<SkinnedMeshRenderer>().material = Resources.instance.idMaterials[id];
+        base.Initilize(id);
         SetCurrentStation();
-
     }
 
 
     void SetCurrentStation()
     {
-        myCurrentStation =  GameManager.instnace.currentLevel.stages[currentStageIndex].stations[characterId];
+        foreach(PuzzleStation puzzleStation in GameManager.instnace.currentLevel.stages[currentStageIndex].stations)
+        {
+            if(puzzleStation.stationId == characterId)
+            {
+                myCurrentStation = puzzleStation;
+                break;
+            }
+        }
     }
 
     //A
@@ -42,7 +46,7 @@ public class EnemyAI : Character
     {
         SetTargetPuzzleBlock();
         agent.SetDestination(targetPuzzleBlock.transform.position);
-        this.CallWithDelay(() => onReachDestination = ReachedPuzzleBlock, 2);
+        this.CallWithDelay(() => onReachDestination = ReachedPuzzleBlock, 3);
         
         
     }
@@ -53,7 +57,7 @@ public class EnemyAI : Character
         PickUpPuzzleBlock(targetPuzzleBlock);
         targetPuzzleBlock = null; // Use blockInHand from now on
         agent.SetDestination(myCurrentStation.boxColliderDummy.position);
-        this.CallWithDelay(() => onReachDestination = ReachedStationCollider, 3);
+        this.CallWithDelay(() => onReachDestination = ReachedStationCollider, 2);
 
 
     }

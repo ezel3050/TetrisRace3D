@@ -12,6 +12,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
+namespace AppLovinMax.Scripts.IntegrationManager.Editor
+{
+    public enum Platform
+    {
+        All,
+        Android,
+        iOS
+    }
+}
+
 /// <summary>
 /// A <see cref="ScriptableObject"/> representing the AppLovin Settings that can be set in the Integration Manager Window.
 ///
@@ -49,6 +60,7 @@ public class AppLovinSettings : ScriptableObject
     [SerializeField] private bool setAttributionReportEndpoint;
 
     [SerializeField] private bool consentFlowEnabled;
+    [SerializeField] private Platform consentFlowPlatform;
     [SerializeField] private string consentFlowPrivacyPolicyUrl = string.Empty;
     [SerializeField] private string consentFlowTermsOfServiceUrl = string.Empty;
     [FormerlySerializedAs("userTrackingUsageDescription")] [SerializeField] private string userTrackingUsageDescriptionEn = string.Empty;
@@ -170,12 +182,19 @@ public class AppLovinSettings : ScriptableObject
             }
             else
             {
+                Instance.ConsentFlowPlatform = Platform.All;
                 Instance.ConsentFlowPrivacyPolicyUrl = string.Empty;
                 Instance.ConsentFlowTermsOfServiceUrl = string.Empty;
                 Instance.UserTrackingUsageDescriptionEn = string.Empty;
                 Instance.UserTrackingUsageLocalizationEnabled = false;
             }
         }
+    }
+
+    public Platform ConsentFlowPlatform
+    {
+        get { return Instance.consentFlowEnabled ? Instance.consentFlowPlatform : Platform.All; }
+        set { Instance.consentFlowPlatform = value; }
     }
 
     /// <summary>

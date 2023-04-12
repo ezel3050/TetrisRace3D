@@ -33,6 +33,8 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
 
         private const string qualityServiceRequiresGradleBuildErrorMsg = "AppLovin Quality Service integration via AppLovin Integration Manager requires Custom Gradle Template enabled or Unity 2018.2 or higher.\n" +
                                                                          "If you would like to continue using your existing setup, please add Quality Service Plugin to your build.gradle manually.";
+        
+        private readonly string[] termsFlowPlatforms = new string[3] {"Both", "Android", "iOS"};
 
         private Vector2 scrollPosition;
         private static readonly Vector2 windowMinSize = new Vector2(750, 750);
@@ -40,15 +42,12 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
         private const float upgradeAllButtonWidth = 80f;
         private const float networkFieldMinWidth = 100f;
         private const float versionFieldMinWidth = 190f;
-        private const float privacySettingLabelWidth = 200f;
+        private const float privacySettingLabelWidth = 250f;
         private const float networkFieldWidthPercentage = 0.22f;
         private const float versionFieldWidthPercentage = 0.36f; // There are two version fields. Each take 40% of the width, network field takes the remaining 20%.
-        private static float partnerUrlsFieldWidth = 600f;
         private static float previousWindowWidth = windowMinSize.x;
         private static GUILayoutOption networkWidthOption = GUILayout.Width(networkFieldMinWidth);
         private static GUILayoutOption versionWidthOption = GUILayout.Width(versionFieldMinWidth);
-
-        private static GUILayoutOption sdkKeyTextFieldWidthOption = GUILayout.Width(520);
 
         private static GUILayoutOption privacySettingFieldWidthOption = GUILayout.Width(400);
         private static readonly GUILayoutOption fieldWidth = GUILayout.Width(actionFieldWidth);
@@ -566,7 +565,7 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
                     GUILayout.Space(4);
                 }
 
-                AppLovinSettings.Instance.SdkKey = DrawTextField("AppLovin SDK Key", AppLovinSettings.Instance.SdkKey, networkWidthOption, sdkKeyTextFieldWidthOption);
+                AppLovinSettings.Instance.SdkKey = DrawTextField("AppLovin SDK Key", AppLovinSettings.Instance.SdkKey, GUILayout.Width(privacySettingLabelWidth), privacySettingFieldWidthOption);
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(4);
                 GUILayout.Button("You can find your SDK key here: ", wrapTextLabelStyle, GUILayout.Width(185)); // Setting a fixed width since Unity adds arbitrary padding at the end leaving a space between link and text.
@@ -646,19 +645,20 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
         {
             GUILayout.BeginHorizontal();
             GUILayout.Space(4);
-            AppLovinSettings.Instance.ConsentFlowEnabled = GUILayout.Toggle(AppLovinSettings.Instance.ConsentFlowEnabled, "  Enable Terms Flow (iOS Only)");
+            AppLovinSettings.Instance.ConsentFlowEnabled = GUILayout.Toggle(AppLovinSettings.Instance.ConsentFlowEnabled, "  Enable Terms Flow");
+            GUILayout.FlexibleSpace();
+            GUI.enabled = AppLovinSettings.Instance.ConsentFlowEnabled;
+            AppLovinSettings.Instance.ConsentFlowPlatform = (Platform) EditorGUILayout.Popup((int) AppLovinSettings.Instance.ConsentFlowPlatform, termsFlowPlatforms);
             GUILayout.EndHorizontal();
             GUILayout.Space(4);
 
-            GUI.enabled = AppLovinSettings.Instance.ConsentFlowEnabled;
-
             AppLovinSettings.Instance.ConsentFlowPrivacyPolicyUrl = DrawTextField("Privacy Policy URL", AppLovinSettings.Instance.ConsentFlowPrivacyPolicyUrl, GUILayout.Width(privacySettingLabelWidth), privacySettingFieldWidthOption);
             AppLovinSettings.Instance.ConsentFlowTermsOfServiceUrl = DrawTextField("Terms of Service URL (optional)", AppLovinSettings.Instance.ConsentFlowTermsOfServiceUrl, GUILayout.Width(privacySettingLabelWidth), privacySettingFieldWidthOption);
-            AppLovinSettings.Instance.UserTrackingUsageDescriptionEn = DrawTextField("User Tracking Usage Description", AppLovinSettings.Instance.UserTrackingUsageDescriptionEn, GUILayout.Width(privacySettingLabelWidth), privacySettingFieldWidthOption);
+            AppLovinSettings.Instance.UserTrackingUsageDescriptionEn = DrawTextField("User Tracking Usage Description (iOS only)", AppLovinSettings.Instance.UserTrackingUsageDescriptionEn, GUILayout.Width(privacySettingLabelWidth), privacySettingFieldWidthOption);
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(4);
-            AppLovinSettings.Instance.UserTrackingUsageLocalizationEnabled = GUILayout.Toggle(AppLovinSettings.Instance.UserTrackingUsageLocalizationEnabled, "  Localize User Tracking Usage Description");
+            AppLovinSettings.Instance.UserTrackingUsageLocalizationEnabled = GUILayout.Toggle(AppLovinSettings.Instance.UserTrackingUsageLocalizationEnabled, "  Localize User Tracking Usage Description (iOS only)");
             GUILayout.EndHorizontal();
             GUILayout.Space(4);
 
@@ -887,13 +887,8 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             versionWidthOption = GUILayout.Width(versionLabelWidth);
 
             const int textFieldOtherUiElementsWidth = 45; // NOTE: Magic number alert. This is the sum of all the spacing the fields and other UI elements.
-            var availableTextFieldWidth = currentWidth - networkLabelWidth - textFieldOtherUiElementsWidth;
-            sdkKeyTextFieldWidthOption = GUILayout.Width(availableTextFieldWidth);
-
             var availableUserDescriptionTextFieldWidth = currentWidth - privacySettingLabelWidth - textFieldOtherUiElementsWidth;
             privacySettingFieldWidthOption = GUILayout.Width(availableUserDescriptionTextFieldWidth);
-
-            partnerUrlsFieldWidth = currentWidth - 60; // NOTE: Magic number alert. This is the sum of all the empty spacing around the field.
         }
 
         #endregion

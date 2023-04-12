@@ -5,9 +5,11 @@ using UnityEngine;
 public class PurchaseApplier : MonoBehaviour
 {
     public string itemId;
+    public bool applyPurchasedOnStart = true;
 
     public virtual void Start()
     {
+        if (!applyPurchasedOnStart) return;
         ApplyPurchase();
     }
 

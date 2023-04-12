@@ -18,13 +18,13 @@ public class MessagePanel : MonoBehaviour
 
     public void ShowMessage(string message)
     {
-        panel.DOScale(1, 0.2f).SetEase(Ease.InOutQuint);
+        panel.DOScale(1, 0.3f).SetEase(Ease.InOutQuint);
         text.text = message;
     }
 
     public void ClosePanel()
     {
-        panel.DOScale(0, 0.2f).SetEase(Ease.InOutQuint);
+        panel.DOScale(0, 0.3f).SetEase(Ease.InOutQuint);
     }
 
 

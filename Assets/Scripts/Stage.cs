@@ -9,13 +9,20 @@ public class Stage : MonoBehaviour
     public List<ListOfListOfSpawnedPuzzles> listOfListSpawnedPuzzles = new List<ListOfListOfSpawnedPuzzles>();
     public List<PuzzleSpawnPoint> puzzleSpawnPoints;
     public List<Transform> characterSpawnPoints;
+    public List<GameObject> levelDesigns;
+
+    private void Awake()
+    {
+
+    }
+
     private void Start()
     {
         StartCoroutine(SpawnFirstPuzzleBlocks());
-        InitilizeStations();
+
     }
 
-    
+
     public IEnumerator SpawnFirstPuzzleBlocks()
     {
         List<PuzzleSpawnPoint> emptySpawnPoints = new List<PuzzleSpawnPoint>(puzzleSpawnPoints);
@@ -37,17 +44,36 @@ public class Stage : MonoBehaviour
 
     }
 
-    void InitilizeStations()
+    public void InitilizeStations()
     {
-        int i = 0;
-        foreach(PuzzleStation station in stations)
+        List<int> indexes = new List<int>();
+        for (int i = 0; i < GameManager.instnace.currentLevel.idMaterials.Count; i++)
         {
-            station.Initilize(i);
+            indexes.Add(i);
+        }
 
-            i++;
+        foreach (PuzzleStation station in stations)
+        {
+            int randomIndex;
+            randomIndex = Random.Range(0, indexes.Count);
+            station.Initilize(indexes[randomIndex]);
+            indexes.RemoveAt(randomIndex);
         }
     }
 
+        public void SetLevelDesign(int levelDesignIndex)
+    {
+        DeActivateAllLevelDesigns();
+        levelDesigns[levelDesignIndex].SetActive(true);
+    }
+
+    void DeActivateAllLevelDesigns()
+    {
+        foreach(GameObject levelDesign in levelDesigns)
+        {
+            levelDesign.SetActive(false);
+        }
+    }
 
     public int IdWithLowestSpawnedPuzzleItem()
     {

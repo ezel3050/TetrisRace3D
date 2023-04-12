@@ -10,6 +10,7 @@ public class Player : Character
     public float moveSpeed;
     public float rotationOffset;
     public bool considerGravity;
+    public PurchaseApplierGameObject skinPuchaseApplier;
 
     [HideInInspector] public int currentStage;
 
@@ -19,8 +20,21 @@ public class Player : Character
     {
         //Not calling base.Awake on purpes to seperate Player with character for later reusabilty
         instance = this;
-        animator = GetComponentInChildren<Animator>();
         characterController = GetComponent<CharacterController>();
+    }
+
+    private void Start()
+    {
+        this.CallWithDelay(() =>
+        {
+            //waiting for purchase applier to activate the right skin
+            SetAnimator();
+        }, 1);
+    }
+
+    public void SetAnimator()
+    {
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -46,6 +60,7 @@ public class Player : Character
 
     void Animation()
     {
+        if (!animator) return;
         animator.SetFloat("Speed", characterController.velocity.magnitude);
     }
 
@@ -60,4 +75,24 @@ public class Player : Character
         }, 0.2f);
 
     }
+
+    public override void Initilize(int id)
+    {
+        foreach (SkinPartOfPlayer skinPartOfPlayer in GetComponentsInChildren<SkinPartOfPlayer>())
+        {
+            skinPartOfPlayer.skinnedMeshRenderer.material = GameManager.instnace.currentLevel.idMaterials[id];
+        }
+
+        skinPuchaseApplier.ApplyPurchase();
+
+    }
+
+    public override void PickUpPuzzleBlock(PuzzleBlock puzzleBlock)
+    {
+        base.PickUpPuzzleBlock(puzzleBlock);
+        AudioManager.instnace.PlayClip(1);
+    }
+
+
+
 }

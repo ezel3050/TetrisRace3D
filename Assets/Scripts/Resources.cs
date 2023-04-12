@@ -6,8 +6,7 @@ public class Resources : MonoBehaviour
 {
     public static Resources instance;
     public List<PuzzleBlock> puzzleBlocksPrefabs;
-    public List<Material> idMaterials;
-
+    public ParticleSystem placementParticle;
 
     private void Awake()
     {
