@@ -123,19 +123,21 @@ public class AdManager : MonoBehaviour
             return;
         }
 
-        GeneralManager.SetTouchActive(false);
-        NotificationCanvas.instance.loadingPanel.ShowScale();
-        onRVSuccess = _onRVSuccess;
+    //    GeneralManager.SetTouchActive(false);
+    //    NotificationCanvas.instance.loadingPanel.ShowScale();
+        //onRVSuccess = _onRVSuccess;
 
         if (MaxSdk.IsRewardedAdReady(rvID))
         {
             Debug.Log("RV Clicked and It's Ready");
             MaxSdk.ShowRewardedAd(rvID);
+            onRVSuccess = _onRVSuccess;
         }
 
         else
         {
-            LoadRewardedAd();
+            MessagePanel.instance.ShowMessage("No Ads available, Try again in a minute");
+            //LoadRewardedAd();
             Debug.Log("RV Clicked NOT READY");
 
         }

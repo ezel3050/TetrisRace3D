@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,16 +180,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
       propertyPath: clipList.Array.size
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
       propertyPath: clipList.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: d909f32c8acabc94b9938c0ff441bc9d, type: 3}
+      objectReference: {fileID: 8300000, guid: 0347be37b73d9c24f99f43e9ad461b08, type: 3}
     - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
       propertyPath: clipList.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 9f8ccad18a0332e47afa871f6c887c73, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45b54411eff132846963f75166f5b18a, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 55ad1d1de15af2342b4823e71f793ce8, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0457b8bfddf764b4abbdd86d2287bb65, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: b7ecfde5747be534598d070d7248d6bd, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f75ed117e47ac74bade7d041f6129aa, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: de71c9e980b849647a80bb7765b31d2d, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c36475153429084fb97b07a539cb033, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: bc29b8d184660fe4fb6ef9b9678ccb31, type: 3}
+    - target: {fileID: 7421500906770194109, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
+      propertyPath: clipList.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 844d55b7f0e494a48b567781c18fef1d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfc1ff2d17ec4a4b9ce3049fad53469, type: 3}
 --- !u!1 &79171915
@@ -296,7 +332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 597549668}
   - component: {fileID: 597549667}
-  - component: {fileID: 597549666}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -304,14 +339,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &597549666
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597549665}
-  m_Enabled: 1
 --- !u!20 &597549667
 Camera:
   m_ObjectHideFlags: 0
@@ -386,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1297205042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 4663256400108425080, guid: f58ffd28f36958140a365e48b9150fdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063587273201857325, guid: f58ffd28f36958140a365e48b9150fdb, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8063587273201857325, guid: f58ffd28f36958140a365e48b9150fdb, type: 3}
       propertyPath: m_audioClip

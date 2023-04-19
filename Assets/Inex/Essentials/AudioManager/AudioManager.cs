@@ -23,11 +23,12 @@ public class AudioManager : MonoBehaviour
         listener.enabled = !mute;
     }
 
-    public void PlayClip(int clipIndex)
+    public void PlayClip(int clipIndex, float volume = 1)
     {
         if (PlayerPrefs.GetInt("SFXOn" , 1) == 0) return;
         SpawnableAS ISpawnableAS = Instantiate(spawnableASPrefab);
-        ISpawnableAS.Init(clipList[clipIndex]);
+        ISpawnableAS.Init(clipList[clipIndex] , volume);
+
     }
 
 

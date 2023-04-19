@@ -12,6 +12,7 @@ public class Multiplier : MonoBehaviour
     public List<float> multiplyValues;
     public TextMeshProUGUI baseRewardText, multipliedReward, claimText;
 
+    bool hasBeenClickedOnce;
     int baseReward;
     Tween rotationTween;
 
@@ -44,6 +45,8 @@ public class Multiplier : MonoBehaviour
 
     public void RewardButtonClicked()
     {
+        if (hasBeenClickedOnce) return;
+        hasBeenClickedOnce = true;
         StopRotating();
         AdManager.instance.ShowRV(() =>
         {

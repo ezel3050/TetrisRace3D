@@ -24,12 +24,19 @@ public class FinalPanel : UIPanel
     {
         base.ClosePanel();
 
-
     }
 
     public void NextLevelButtonClicked()
     {
-        SceneManagement.LoadScene("GameScene");
+        UICollectableImageGenerator.Instance.SpawnItems(Input.mousePosition, MainMenu.instance.HUD.moneyUISlot.imageIcon.transform.position, () =>
+        {
+            MainMenu.instance.HUD.moneyUISlot.UpdateText(GameManager.instnace.currentLevel.levelReward);
+            this.CallWithDelay(() =>
+            {
+                SceneManagement.LoadScene("GameScene");
+            }, 1);
+        });
+
     }
 
 }

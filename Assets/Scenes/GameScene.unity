@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2125734073793379425, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.69
+      value: 74.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
@@ -605,6 +605,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378483726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 251560982883920001, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d671cb3d11e674c854498dc0a31f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &405823541 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 768108669162942634, guid: fa3f3f4423a6cd349a44b9d29d9bcfde, type: 3}
@@ -783,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347893480954180109, guid: 8a90f187b424e29449f9d95ecddc1ee9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50.09
+      value: 46.02
       objectReference: {fileID: 0}
     - target: {fileID: 3347893480954180109, guid: 8a90f187b424e29449f9d95ecddc1ee9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1411,7 +1422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2125734073793379425, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.75
+      value: 28.28
       objectReference: {fileID: 0}
     - target: {fileID: 3744185099786802729, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_IsActive
@@ -3810,6 +3821,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783934668}
   m_CullTransparentMesh: 1
+--- !u!114 &808802117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &810243704 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7548588264655141639, guid: 9fbb7e3ac72563c45be1fca1257167cc, type: 3}
@@ -4250,6 +4288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2125734073793379425, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
 --- !u!114 &867398355 stripped
@@ -4350,7 +4392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -4359,14 +4400,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -7260,7 +7293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2125734073793379425, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.69
+      value: 74
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
@@ -7337,6 +7370,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 251560982883920030, guid: e42634d9666dfd648b006782594e958e, type: 3}
   m_PrefabInstance: {fileID: 251560984154397713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1281225534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1382347178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7718,6 +7778,33 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1447561677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1448992797
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,6 +7881,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1450188161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1461687972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3017772755374521188, guid: 0b5b7d287f64f38469568803f69b574c, type: 3}
@@ -7805,6 +7919,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f02ede1be0e644c9e050ca6d7910e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1463604865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1480907277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8017,7 +8158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347893480954180109, guid: 8a90f187b424e29449f9d95ecddc1ee9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50.09
+      value: 46.000004
       objectReference: {fileID: 0}
     - target: {fileID: 3347893480954180109, guid: 8a90f187b424e29449f9d95ecddc1ee9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8236,7 +8377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2125734073793379425, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.75
+      value: 28.1
       objectReference: {fileID: 0}
     - target: {fileID: 3744185099786802729, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_IsActive
@@ -10320,6 +10461,159 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7af350035db4e2aa56bb37f0b814b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &251560984154397715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 251778936572726713, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 251742492512473425, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250210488117331294, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 249998567650683488, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250071386318835663, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250475602109812229, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250186718953707472, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250399374463049501, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &251560984154397723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 250162867939314379, guid: e42634d9666dfd648b006782594e958e, type: 3}
+  m_PrefabInstance: {fileID: 251560984154397713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &251560984154397725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &251560984154397726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &251560984154397727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &251560984154397728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251560984154397723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931135038fab4214581d01fb3e2fb413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378483726}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: PlayFootStepSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &768108669029748895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10542,6 +10836,10 @@ PrefabInstance:
     - target: {fileID: 2125734073651976218, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744185099720864063, guid: 5c93294496d50174c9b1a96fea172052, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c93294496d50174c9b1a96fea172052, type: 3}

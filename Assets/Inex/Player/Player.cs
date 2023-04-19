@@ -94,6 +94,9 @@ public class Player : Character
         AudioManager.instnace.PlayClip(1);
     }
 
-
+    public void PlayFootStepSFX()
+    {
+        AudioManager.instnace.PlayClip(Random.Range(2, 10) , 0.35f);
+    }
 
 }
